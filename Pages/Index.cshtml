@@ -1,0 +1,90 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<div class="text-center">
+    <h1 style="text-align: center;">MADA Integration POC @Model.SessionId</h1>
+    <hr />
+    <br />
+    <input type="button" id="btnPay" value="Pay" style="height: 50px; width:150px" class="btn btn-primary" />
+
+    @*<input type="button" value="Pay with Lightbox" onclick="Checkout.showLightbox();" />
+
+    <input type="button" value="Pay with Payment Page" onclick="Checkout.showPaymentPage();" />*@
+
+</div>
+
+<script src="https://test-gateway.mastercard.com/checkout/version/57/checkout.js" type="text/javascript"
+        data-error="errorCallback"
+        data-cancel="cancelCallback"
+        data-complete="completeCallback">
+</script>
+
+<script type="text/javascript">
+
+    function errorCallback(error) {
+        // handle errors
+        console.log(JSON.stringify(error));
+    }
+    function cancelCallback() {
+        // handle cancellation
+        console.log('Payment cancelled');
+    }
+    function completeCallback() {
+        // handle cancellation
+        console.log('Payment Complete');
+    }
+
+    Checkout.configure({
+        merchant: '5432154321',
+        order: {
+            description: 'Mastercard basketball sneakers size 10',
+        },
+        session: {
+                id: "@Model.SessionId"
+                },
+        interaction: {
+                merchant: {
+                name: 'SFDA',
+                email: "support@sfda.gov.sa",
+                phone: "+966118352514",
+                logo: "https://sfda.gov.sa/themes/custom/sfda/assets/images/sfda_logo_colored.svg",
+                url: "https://sfda.gov.sa",
+                address: {
+                    line1: 'Dubai',
+                    line2: 'UAE'
+                }
+            },
+        displayControl: {
+                billingAddress: "MANDATORY",
+                customerEmail: "OPTIONAL",
+                orderSummary: "SHOW",
+                paymentConfirmation: "HIDE",
+                paymentTerms: "HIDE",
+            },
+         },
+     });
+
+    function getdate() {
+        var today = new Date();
+        var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+        var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+        return dateTime = date + ' ' + time;
+    }
+
+    $(document).ready(function () {
+
+        $('#btnPay').click(function () {
+
+            Checkout.showLightbox();
+
+            //Checkout.showPaymentPage();
+        });
+    });
+
+</script>
+
+
+
