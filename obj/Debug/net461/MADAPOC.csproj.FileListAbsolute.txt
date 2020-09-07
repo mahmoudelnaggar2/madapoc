@@ -325,7 +325,6 @@ C:\Users\melnaggar\source\repos\MADAPOC\obj\Debug\net461\MADAPOC.TagHelpers.outp
 C:\Users\melnaggar\source\repos\MADAPOC\obj\Debug\net461\MADAPOC.RazorCoreGenerate.cache
 C:\Users\melnaggar\source\repos\MADAPOC\obj\Debug\net461\Razor\Pages\Error.cshtml.g.cs
 C:\Users\melnaggar\source\repos\MADAPOC\obj\Debug\net461\Razor\Pages\Index.cshtml.g.cs
-C:\Users\melnaggar\source\repos\MADAPOC\obj\Debug\net461\Razor\Pages\Privacy.cshtml.g.cs
 C:\Users\melnaggar\source\repos\MADAPOC\obj\Debug\net461\Razor\Pages\Shared\_CookieConsentPartial.cshtml.g.cs
 C:\Users\melnaggar\source\repos\MADAPOC\obj\Debug\net461\Razor\Pages\Shared\_Layout.cshtml.g.cs
 C:\Users\melnaggar\source\repos\MADAPOC\obj\Debug\net461\Razor\Pages\Shared\_ValidationScriptsPartial.cshtml.g.cs

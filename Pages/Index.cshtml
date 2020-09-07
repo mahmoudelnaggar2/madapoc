@@ -16,7 +16,13 @@
 
 </div>
 
-<script src="https://test-gateway.mastercard.com/checkout/version/57/checkout.js" type="text/javascript"
+@*<script src="https://test-gateway.mastercard.com/checkout/version/57/checkout.js" type="text/javascript"
+        data-error="errorCallback"
+        data-cancel="cancelCallback"
+        data-complete="completeCallback">
+</script>*@
+
+<script src="https://test-bsf.mtf.gateway.mastercard.com/checkout/version/57/checkout.js" type="text/javascript"
         data-error="errorCallback"
         data-cancel="cancelCallback"
         data-complete="completeCallback">
@@ -43,8 +49,7 @@
             description: 'Mastercard basketball sneakers size 10',
         },
         session: {
-                id: "@Model.SessionId"
-                },
+                id: "@Model.SessionId"},
         interaction: {
                 merchant: {
                 name: 'SFDA',
