@@ -20,9 +20,7 @@ namespace MADAPOC.Pages
             string responseContent = "[]";
             var retunURL = "http://madapoc.com/";
             var username = "merchant.5432154321";
-            var password = "fe7cb3b543f83442957a4cea7a385d02";
-
-        //Uri baseURL = new Uri("https://test-gateway.mastercard.com/api/rest/version/57/merchant/5432154321/session");
+            var password = "fe7cb3b543f83442957a4cea7a385d02";        
 
         Uri baseURL = new Uri("https://test-bsf.mtf.gateway.mastercard.com/api/rest/version/57/merchant/5432154321/session");        
 
