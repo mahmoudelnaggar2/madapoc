@@ -14,6 +14,7 @@ namespace MADAPOC.Pages
     public class IndexModel : PageModel
     {
         public string SessionId { get; set; }
+        public string OrderId { get; set; }
 
         public async Task OnGet()
         {       
@@ -25,6 +26,7 @@ namespace MADAPOC.Pages
         Uri baseURL = new Uri("https://test-bsf.mtf.gateway.mastercard.com/api/rest/version/57/merchant/5432154321/session");        
 
             HttpClient client = new HttpClient();
+            OrderId = $"sfda-{DateTime.Now.Ticks}";
 
             JObject jObject = JObject.FromObject(new
             {
@@ -36,10 +38,10 @@ namespace MADAPOC.Pages
                 },
                 order = new
                 {
-                    amount = "100.00",
+                    amount = "1.00",
                     currency = "SAR",
                     id = $"sfda-{DateTime.Now}",
-                    reference = $"sfda-{DateTime.Now}"
+                    reference = OrderId
                 },
                 transaction = new { reference = $"sfda-{DateTime.Now}" }
             });

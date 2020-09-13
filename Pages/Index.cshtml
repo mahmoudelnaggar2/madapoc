@@ -6,20 +6,23 @@
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
 <div class="text-center">
     <h1 style="text-align: center;">MADA Integration POC @Model.SessionId</h1>
+
+    <h1 style="text-align: center;">@Model.OrderId</h1>
     <hr />
     <br />
     <input type="button" id="btnPay" value="Pay" style="height: 50px; width:150px" class="btn btn-primary" />
 
     @*<input type="button" value="Pay with Lightbox" onclick="Checkout.showLightbox();" />
 
-    <input type="button" value="Pay with Payment Page" onclick="Checkout.showPaymentPage();" />*@
+        <input type="button" value="Pay with Payment Page" onclick="Checkout.showPaymentPage();" />*@
 
 </div>
 
 <script src="https://test-bsf.mtf.gateway.mastercard.com/checkout/version/57/checkout.js" type="text/javascript"
         data-error="errorCallback"
         data-cancel="cancelCallback"
-        data-complete="completeCallback">
+        data-complete="completeCallback"
+        data-afterRedirect="restorePageState">
 </script>
 
 <script type="text/javascript">
@@ -33,8 +36,13 @@
         console.log('Payment cancelled');
     }
     function completeCallback() {
+        debugger;
         // handle cancellation
         console.log('Payment Complete');
+    }
+    function restorePageState(data) {
+        debugger;
+        //set page state from data object
     }
 
     Checkout.configure({
@@ -49,7 +57,7 @@
                 name: 'SFDA',
                 email: "support@sfda.gov.sa",
                 phone: "+966118352514",
-                logo: "https://sfda.gov.sa/themes/custom/sfda/assets/images/sfda_logo_colored.svg",
+                logo: "",
                 url: "https://sfda.gov.sa",
                 address: {
                     line1: 'Dubai',
@@ -57,8 +65,8 @@
                 }
             },
         displayControl: {
-                billingAddress: "MANDATORY",
-                customerEmail: "OPTIONAL",
+            billingAddress: "HIDE",
+            customerEmail: "HIDE",
                 orderSummary: "SHOW",
                 paymentConfirmation: "HIDE",
                 paymentTerms: "HIDE",
@@ -77,9 +85,9 @@
 
         $('#btnPay').click(function () {
 
-            Checkout.showLightbox();
+            //Checkout.showLightbox();
 
-            //Checkout.showPaymentPage();
+            Checkout.showPaymentPage();
         });
     });
 
